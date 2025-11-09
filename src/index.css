@@ -1,0 +1,227 @@
+/* src/index.css */
+
+/* === Galaxy Glow Cosmetics Theme === */
+:root {
+  --bg-gradient: radial-gradient(circle at top, #1a0033, #0b032d, #000000);
+  --card-bg: rgba(30, 20, 50, 0.9);
+  --accent-color: #9b5de5; /* Cosmic purple */
+  --accent-secondary: #00f5d4; /* Neon teal */
+  --text-color: #f3eaff;
+  --subtext-color: #bbaedc;
+  --border-color: rgba(155, 93, 229, 0.3);
+  --success: #80ed99;
+  --warning: #ffd166;
+  --danger: #ff6b6b;
+  --neutral: #777;
+  font-family: "Poppins", sans-serif;
+  color: var(--text-color);
+  background: var(--bg-gradient);
+  background-attachment: fixed;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* === Page Layout === */
+.product-page {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+/* === Title === */
+h1 {
+  text-align: center;
+  background: linear-gradient(90deg, #9b5de5, #00bbf9, #00f5d4);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 3em;
+  margin-bottom: 40px;
+  font-weight: 700;
+  text-shadow: 0 0 15px rgba(155, 93, 229, 0.6),
+               0 0 30px rgba(0, 245, 212, 0.4);
+  animation: galaxyPulse 3s infinite ease-in-out;
+}
+
+@keyframes galaxyPulse {
+  0%, 100% {
+    text-shadow: 0 0 12px rgba(155, 93, 229, 0.5),
+                 0 0 25px rgba(0, 245, 212, 0.3);
+  }
+  50% {
+    text-shadow: 0 0 25px rgba(155, 93, 229, 0.8),
+                 0 0 40px rgba(0, 245, 212, 0.6);
+  }
+}
+
+/* === Forms === */
+.form-section {
+  background: var(--card-bg);
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 0 25px rgba(155, 93, 229, 0.25);
+  margin-bottom: 40px;
+  border: 1px solid var(--border-color);
+  transition: transform 0.3s ease, box-shadow 0.4s ease;
+}
+
+.form-section:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 30px rgba(155, 93, 229, 0.4),
+              0 0 20px rgba(0, 245, 212, 0.3);
+}
+
+.product-form h3 {
+  border-bottom: 2px solid var(--accent-secondary);
+  padding-bottom: 10px;
+  margin-top: 0;
+  color: var(--accent-secondary);
+  font-weight: 600;
+}
+
+/* === Inputs === */
+.product-form input[type="text"],
+.product-form input[type="number"],
+.product-form textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  font-size: 1em;
+  color: var(--text-color);
+  background-color: rgba(20, 15, 35, 0.85);
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.product-form input:focus,
+.product-form textarea:focus {
+  border-color: var(--accent-secondary);
+  box-shadow: 0 0 12px rgba(0, 245, 212, 0.4);
+  outline: none;
+}
+
+/* === Buttons with Cosmic Glow === */
+button {
+  cursor: pointer;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 12px;
+  font-weight: 600;
+  color: #fff;
+  transition: transform 0.2s ease, box-shadow 0.3s ease, background 0.3s ease;
+  letter-spacing: 0.5px;
+}
+
+button:hover {
+  transform: translateY(-3px);
+}
+
+/* Button Variants */
+.btn-create {
+  background: linear-gradient(135deg, #00f5d4, #00bbf9);
+  box-shadow: 0 0 10px rgba(0, 245, 212, 0.5);
+}
+.btn-create:hover {
+  box-shadow: 0 0 20px rgba(0, 245, 212, 0.8);
+}
+
+.btn-update {
+  background: linear-gradient(135deg, #ffd166, #ffb703);
+  color: #2e2e1f;
+  box-shadow: 0 0 10px rgba(255, 209, 102, 0.4);
+}
+.btn-update:hover {
+  box-shadow: 0 0 20px rgba(255, 209, 102, 0.6);
+}
+
+.btn-delete {
+  background: linear-gradient(135deg, #ff6b6b, #c9184a);
+  box-shadow: 0 0 10px rgba(255, 107, 107, 0.5);
+}
+.btn-delete:hover {
+  box-shadow: 0 0 20px rgba(255, 107, 107, 0.8);
+}
+
+.btn-edit {
+  background: linear-gradient(135deg, #9b5de5, #6a00f4);
+  box-shadow: 0 0 12px rgba(155, 93, 229, 0.6);
+}
+.btn-edit:hover {
+  box-shadow: 0 0 25px rgba(155, 93, 229, 0.9);
+}
+
+.btn-cancel {
+  background: linear-gradient(135deg, #555, #777);
+  box-shadow: 0 0 8px rgba(120, 120, 120, 0.4);
+}
+.btn-cancel:hover {
+  box-shadow: 0 0 16px rgba(180, 180, 180, 0.6);
+}
+
+/* === Product Grid === */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 25px;
+}
+
+/* === Product Card === */
+.product-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  padding: 22px;
+  box-shadow: 0 0 20px rgba(155, 93, 229, 0.1);
+  transition: transform 0.25s ease, box-shadow 0.4s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 35px rgba(155, 93, 229, 0.4),
+              0 0 20px rgba(0, 245, 212, 0.3);
+}
+
+.product-card h4 {
+  margin-top: 0;
+  color: var(--accent-secondary);
+  font-size: 1.4em;
+  font-weight: 600;
+  text-shadow: 0 0 8px rgba(0, 245, 212, 0.4);
+}
+
+.product-card .price {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: var(--success);
+  margin: 8px 0;
+  text-shadow: 0 0 8px rgba(128, 237, 153, 0.5);
+}
+
+.product-card .description {
+  color: var(--subtext-color);
+  margin-bottom: 20px;
+  font-size: 0.95em;
+}
+
+.product-card .actions button {
+  margin-right: 8px;
+}
+
+/* === Utility === */
+.loading,
+.error-message {
+  text-align: center;
+  padding: 20px;
+  font-size: 1.1em;
+}
+
+.error-message {
+  color: #fff;
+  background: linear-gradient(135deg, #ff6b6b, #c9184a);
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(255, 107, 107, 0.4);
+}
